@@ -1,0 +1,14 @@
+h1.page-heading
+  ol.breadcrumb
+    li
+      a href=linkify(File.dirname(File.dirname(request.path))) Home
+    li = @author
+table.table.table-striped
+  thead
+  tbody
+    - @books.each do |book|
+      tr
+        td
+          a href=linkify("#{@author}/#{book}") = book
+        td
+          a href=linkify("#{@author}/#{book}/feed.xml") feed

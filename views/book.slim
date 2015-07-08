@@ -1,0 +1,32 @@
+h1.page-heading
+  ol.breadcrumb
+    li
+      a href=linkify(File.dirname(File.dirname(request.path))) Home
+    li
+      a href=linkify(File.dirname(request.path)) = @author
+    li =@book
+    li
+      a href=linkify("#{@book}/feed.xml") feed.xml
+      a href=linkify("#{@book}/feed.xml?reverse=true") = "?reverse=true"
+table.table.table-striped
+  thead
+    tr
+      th Filename
+      th Duration
+      th Filesize
+      th Type
+      th Cover
+  tbody
+    - @files.each do |file|
+      tr
+        td
+          a href=linkify("#{@book}/file/#{file[:path]}") = file[:path]
+        td
+          = file[:duration]
+        td
+          = human_size file[:size]
+        td
+          = file[:mime]
+        td
+          a href=linkify("#{@book}/cover/#{file[:path]}") cover
+

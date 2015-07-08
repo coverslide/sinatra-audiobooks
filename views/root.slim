@@ -1,0 +1,14 @@
+h1.page-heading
+  ol.breadcrumb
+    li Home
+table.table.table-striped
+  thead
+    tr
+      th Author
+  tbody
+    - @authors.each do |author|
+      tr
+        td
+          a href=linkify(author) = author
+      
+  
